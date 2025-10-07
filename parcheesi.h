@@ -34,6 +34,7 @@ struct Parcheesi{
   void NextPlayer();
   void PlayTurn();
   MovementOutput ApplyMovement(int pieceIndex, int roll_dice);
+  int RollDice();
 };
 
 #endif // __PARCHEESI_H_

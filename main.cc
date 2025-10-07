@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include "player.cc"
-#include "parcheesi.cc"
+#include "piece.h"
+#include "player.h"
+#include "parcheesi.h"
+
 
 
 int main() {
@@ -14,12 +16,12 @@ int main() {
 
     printf("=== INICIO DEL JUEGO DE PARCHIS ===\n\n");
 
-    do {
+    do{
         printf("Turno del jugador %d (%d repeticiones de seis)\n",
                parchis.current_player_, parchis.repeated_sixes_);
 
         // Tirar el dado
-        int dice = RollDice();
+        int dice = parchis.RollDice();
         printf("El jugador %d ha sacado un %d\n", parchis.current_player_, dice);
 
         // Elegir ficha 
@@ -67,7 +69,7 @@ int main() {
             }
         }
         if (finished == Player::kPieceNum) {
-            printf("¡Jugador %d ha ganado la partida!\n", parchis.current_player_);
+            printf("Jugador %d ha ganado la partida\n", parchis.current_player_);
             win = true;
         }
 

@@ -12,9 +12,6 @@ const int Parcheesi::safePoint[Parcheesi::kSafePoints] = {5, 12, 17, 22, 29, 34,
 const int Parcheesi::startPoint[Parcheesi::kMaxPlayers] = {5, 22, 39, 56};
 const int Parcheesi::finishPoint[Parcheesi::kMaxPlayers] = {68, 17, 34, 51};
 
-int RollDice(){
-  return (rand() % 6) + 1;
-}
 
 Parcheesi::Parcheesi(int num_players)
   : num_players_{num_players}
@@ -29,6 +26,11 @@ Parcheesi::Parcheesi(int num_players)
     }
   }
 
+}
+
+
+int Parcheesi::RollDice(){
+  return (rand() % 6) + 1;
 }
 
 int Parcheesi::CountPiecesOnBox(int box){
