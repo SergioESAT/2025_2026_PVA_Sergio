@@ -22,7 +22,7 @@ int main() {
         int dice = RollDice();
         printf("El jugador %d ha sacado un %d\n", parchis.current_player_, dice);
 
-        // Elegir ficha (en este ejemplo elegimos la primera que pueda moverse)
+        // Elegir ficha 
         int selected_piece = -1;
         for (int i = 0; i < Player::kPieceNum; i++) {
             if (parchis.player_[parchis.current_player_].piece_[i].position != -1) {
@@ -34,22 +34,22 @@ int main() {
         if (selected_piece == -1)
             selected_piece = 0;
 
-        // Aplicar movimiento según las reglas
+        // Aplicar movimiento 
         MovementOutput result = parchis.ApplyMovement(selected_piece, dice);
 
-        // Mostrar resultado textual del movimiento
+        // Mostrar resultado 
         switch (result) {
             case kMovementOutput_BasicMove:
-                printf("Movimiento básico completado.\n");
+                printf("Movimiento basico completado.\n");
                 break;
             case kMovementOutput_NoMove:
                 printf("No se ha podido mover la ficha.\n");
                 break;
             case kMovementOutput_Eat:
-                printf("¡Ha comido una ficha rival y avanza 20 casillas!\n");
+                printf("Ha comido una ficha rival y avanza 20 casillas\n");
                 break;
             case kMovementOutput_IllegalMove:
-                printf("¡Tres seises seguidos! La ficha vuelve a casa.\n");
+                printf("Tres seises seguidos! La ficha vuelve a casa.\n");
                 break;
             case kMovementOutput_End:
                 printf("El jugador ha terminado la partida.\n");
